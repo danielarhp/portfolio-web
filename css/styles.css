@@ -225,7 +225,7 @@ nav a:hover {
     font-weight: 400;
 }
 
-/* ========== HERO SECTION ========== */
+/* ========== HERO ========== */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -418,7 +418,7 @@ section {
     font-size: 15px;
 }
 
-/* ========== ABOUT / SOBRE MÍ ========== */
+/* ========== ABOUT/SOBRE MÍ ========== */
 .about {
     background: #0f0f0f;
 }

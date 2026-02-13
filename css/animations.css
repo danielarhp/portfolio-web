@@ -1,7 +1,6 @@
 /* ========== ANIMACIONES KEYFRAMES (Requisito Opcional 2 - 1 punto) ========== */
-/* Estas animaciones NO son de tipo slider */
 
-/* ANIMACIÓN 1: Efecto de escritura de texto */
+/* ANIMACIÓN 1: Efecto al escribir */
 .typing-animation {
     overflow: hidden;
     border-right: 3px solid var(--primary-color);
@@ -54,7 +53,7 @@
     display: inline-block;
 }
 
-/* ANIMACIÓN 3: Onda de expansión (bonus) */
+/* ANIMACIÓN 3: Onda expand(bonus) */
 .wave-animation {
     position: relative;
 }
@@ -83,7 +82,7 @@
     }
 }
 
-/* ANIMACIÓN 4: Gradiente en movimiento */
+/* ANIMACIÓN 4: Gradient en movimiento */
 .gradient-animation {
     background: linear-gradient(270deg, #00ff88, #00ccff, #667eea);
     background-size: 600% 600%;
@@ -116,7 +115,7 @@
     }
 }
 
-/* Delays escalonados para múltiples elementos */
+/* Delays diferentes para varios elementos */
 .fade-in-up:nth-child(1) { animation-delay: 0.1s; }
 .fade-in-up:nth-child(2) { animation-delay: 0.2s; }
 .fade-in-up:nth-child(3) { animation-delay: 0.3s; }
@@ -160,7 +159,7 @@
     }
 }
 
-/* ANIMACIÓN 8: Efecto de brillo deslizante */
+/* ANIMACIÓN 8: Brillo*/
 .shine-effect {
     position: relative;
     overflow: hidden;
