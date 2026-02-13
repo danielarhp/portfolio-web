@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contacta con Daniela Rangel Herraiz para proyectos de desarrollo web y tecnología">
+    <meta name="keywords" content="contacto, email, formulario, colaboración">
+    <title>Contacto | Daniela Rangel Herraiz</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- HEADER Y NAVEGACIÓN -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">danielarhp</a>
+            <ul>
+                <li>
+                    <a href="index.html">Inicio</a>
+                </li>
+                <li>
+                    <a href="proyectos.html">Proyectos</a>
+                    <ul>
+                        <li><a href="proyectos.html#web">Desarrollo Web</a></li>
+                        <li><a href="proyectos.html#robotica">Robótica</a></li>
+                        <li><a href="proyectos.html#redes">Redes y Sistemas</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="sobre-mi.html">Sobre mí</a>
+                    <ul>
+                        <li><a href="experiencia.html">Experiencia</a></li>
+                        <li><a href="formacion.html">Formación</a></li>
+                        <li><a href="habilidades.html">Habilidades</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="competiciones.html">Competiciones</a>
+                </li>
+                <li>
+                    <a href="contacto.html">Contacto</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" style="min-height: 50vh;">
+        <div class="hero-content">
+            <h1>Contacto</h1>
+            <p class="subtitle">¿Tienes un proyecto en mente? ¡Hablemos!</p>
+        </div>
+    </section>
+
+    <!-- FORMULARIO COMPLETO (Requisito Mínimo 7 - 0.5 puntos) -->
+    <section style="padding: 80px 5%;">
+        <div class="contact-form">
+            <h2 style="text-align: center; color: var(--primary-color); margin-bottom: 10px;">📧 Envíame un mensaje</h2>
+            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 40px;">Completa el formulario y me pondré en contacto contigo lo antes posible</p>
+            
+            <form id="contactForm">
+                <!-- 2 Cajas de texto (Requisito) -->
+                <div class="form-group">
+                    <label for="nombre">Nombre completo *</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan García López" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo electrónico *</label>
+                    <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                </div>
+
+                <!-- Lista select desplegable (Requisito) -->
+                <div class="form-group">
+                    <label for="tipo-proyecto">Tipo de proyecto *</label>
+                    <select id="tipo-proyecto" name="tipo-proyecto" required>
+                        <option value="">-- Selecciona una opción --</option>
+                        <option value="web">Desarrollo Web</option>
+                        <option value="wordpress">WordPress / E-commerce</option>
+                        <option value="redes">Redes y Sistemas</option>
+                        <option value="robotica">Robótica / IoT</option>
+                        <option value="consultoria">Consultoría Tecnológica</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+
+                <!-- Área de texto (Requisito) -->
+                <div class="form-group">
+                    <label for="mensaje">Cuéntame sobre tu proyecto *</label>
+                    <textarea id="mensaje" name="mensaje" placeholder="Describe tu proyecto, objetivos, plazos y cualquier detalle relevante..." required></textarea>
+                </div>
+
+                <!-- 3 Radiobutton (Requisito) -->
+                <div class="form-group">
+                    <label>Presupuesto estimado *</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="presupuesto-bajo" name="presupuesto" value="bajo" required>
+                            <label for="presupuesto-bajo">Menos de 500€</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="presupuesto-medio" name="presupuesto" value="medio">
+                            <label for="presupuesto-medio">500€ - 1.500€</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="presupuesto-alto" name="presupuesto" value="alto">
+                            <label for="presupuesto-alto">Más de 1.500€</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3 Casillas checkbox (Requisito) -->
+                <div class="form-group">
+                    <label>Servicios adicionales de interés</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="servicio-seo" name="servicios" value="seo">
+                            <label for="servicio-seo">Optimización SEO</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="servicio-mantenimiento" name="servicios" value="mantenimiento">
+                            <label for="servicio-mantenimiento">Mantenimiento mensual</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="servicio-hosting" name="servicios" value="hosting">
+                            <label for="servicio-hosting">Asesoramiento en hosting/dominio</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="acepto-privacidad" required style="width: auto; display: inline; margin-right: 8px;">
+                        Acepto la política de privacidad y el tratamiento de mis datos *
+                    </label>
+                </div>
+
+                <!-- 2 Botones: submit y reset (Requisito) -->
+                <div class="form-buttons">
+                    <button type="submit" class="btn btn-primary">
+                        ✉️ Enviar Mensaje
+                    </button>
+                    <button type="reset" class="btn btn-secondary">
+                        🔄 Limpiar Formulario
+                    </button>
+                </div>
+            </form>
+
+            <p style="text-align: center; color: var(--text-secondary); font-size: 13px; margin-top: 30px;">
+                * Campos obligatorios
+            </p>
+        </div>
+    </section>
+
+    <!-- INFORMACIÓN DE CONTACTO -->
+    <section style="background: #0f0f0f;">
+        <h2 class="section-title">📞 Otras formas de contacto</h2>
+        <p class="section-subtitle">También puedes comunicarte directamente por estos medios</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 900px; margin: 0 auto;">
+            <div class="project-card">
+                <div class="project-info" style="text-align: center;">
+                    <p style="font-size: 48px; margin-bottom: 15px;">✉️</p>
+                    <h3>Email</h3>
+                    <p style="word-break: break-word;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6105000f08040d004f1309110221060c00080d4f020e0c">[email&#160;protected]</a></p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-info" style="text-align: center;">
+                    <p style="font-size: 48px; margin-bottom: 15px;">📱</p>
+                    <h3>Teléfono</h3>
+                    <p>+34 650 796 315</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-info" style="text-align: center;">
+                    <p style="font-size: 48px; margin-bottom: 15px;">📍</p>
+                    <h3>Ubicación</h3>
+                    <p>Tres Cantos<br>Madrid, España</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="social-links" style="margin-top: 60px;">
+            <a href="https://www.linkedin.com/in/daniela-rangel-herraiz" class="social-icon" target="_blank" rel="noopener" title="LinkedIn">LI</a>
+            <a href="https://github.com/danielarhp" class="social-icon" target="_blank" rel="noopener" title="GitHub">GH</a>
+            <a href="https://www.notion.so/portfolio" class="social-icon" target="_blank" rel="noopener" title="Notion Portfolio">NO</a>
+            <a href="/cdn-cgi/l/email-protection#c6a2a7a8afa3aaa7e8b4aeb6a586a1aba7afaae8a5a9ab" class="social-icon" title="Email">✉</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Daniela Rangel Herraiz. Hecho con dedicación en Madrid, España.</p>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Validación y envío del formulario
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validar que todos los campos requeridos estén completos
+            const nombre = document.getElementById('nombre').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const tipoProyecto = document.getElementById('tipo-proyecto').value;
+            const mensaje = document.getElementById('mensaje').value.trim();
+            const presupuesto = document.querySelector('input[name="presupuesto"]:checked');
+            const privacidad = document.getElementById('acepto-privacidad').checked;
+
+            if (!nombre || !email || !tipoProyecto || !mensaje || !presupuesto || !privacidad) {
+                alert('⚠️ Por favor, completa todos los campos obligatorios marcados con *');
+                return;
+            }
+
+            // Validar formato de email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('⚠️ Por favor, introduce un email válido');
+                return;
+            }
+
+            // Recopilar servicios seleccionados
+            const servicios = [];
+            document.querySelectorAll('input[name="servicios"]:checked').forEach(checkbox => {
+                servicios.push(checkbox.value);
+            });
+
+            // Simular envío (en producción, aquí iría la llamada al servidor)
+            alert(`✅ ¡Mensaje enviado correctamente!
+
+Gracias ${nombre}, he recibido tu solicitud sobre: ${tipoProyecto}
+
+Me pondré en contacto contigo en ${email} lo antes posible para discutir los detalles de tu proyecto.
+
+¡Hasta pronto!`);
+            
+            // Limpiar formulario
+            this.reset();
+        });
+
+        // Confirmar antes de limpiar
+        docu
