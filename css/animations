@@ -1,0 +1,190 @@
+/* ========== ANIMACIONES KEYFRAMES (Requisito Opcional 2 - 1 punto) ========== */
+/* Estas animaciones NO son de tipo slider */
+
+/* ANIMACIÓN 1: Efecto de escritura de texto */
+.typing-animation {
+    overflow: hidden;
+    border-right: 3px solid var(--primary-color);
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { 
+        width: 0; 
+    }
+    to { 
+        width: 100%; 
+    }
+}
+
+@keyframes blink-caret {
+    from, to { 
+        border-color: transparent; 
+    }
+    50% { 
+        border-color: var(--primary-color); 
+    }
+}
+
+/* ANIMACIÓN 2: Efecto de flotación y rotación 3D */
+.floating-card {
+    animation: float 3s ease-in-out infinite;
+    transform-style: preserve-3d;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px) rotateY(0deg);
+    }
+    33% {
+        transform: translateY(-20px) rotateY(120deg);
+    }
+    66% {
+        transform: translateY(-10px) rotateY(240deg);
+    }
+    100% {
+        transform: translateY(0px) rotateY(360deg);
+    }
+}
+
+/* Aplicar a elementos específicos */
+.animated-element {
+    display: inline-block;
+}
+
+/* ANIMACIÓN 3: Onda de expansión (bonus) */
+.wave-animation {
+    position: relative;
+}
+
+.wave-animation::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    background: rgba(0, 255, 136, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: wave-expand 2s ease-out infinite;
+}
+
+@keyframes wave-expand {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(4);
+        opacity: 0;
+    }
+}
+
+/* ANIMACIÓN 4: Gradiente en movimiento */
+.gradient-animation {
+    background: linear-gradient(270deg, #00ff88, #00ccff, #667eea);
+    background-size: 600% 600%;
+    animation: gradient-shift 8s ease infinite;
+}
+
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ANIMACIÓN 5: Entrada desde abajo */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Delays escalonados para múltiples elementos */
+.fade-in-up:nth-child(1) { animation-delay: 0.1s; }
+.fade-in-up:nth-child(2) { animation-delay: 0.2s; }
+.fade-in-up:nth-child(3) { animation-delay: 0.3s; }
+.fade-in-up:nth-child(4) { animation-delay: 0.4s; }
+.fade-in-up:nth-child(5) { animation-delay: 0.5s; }
+
+/* ANIMACIÓN 6: Rebote suave */
+.bounce-animation {
+    animation: soft-bounce 2s ease-in-out infinite;
+}
+
+@keyframes soft-bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* ANIMACIÓN 7: Rotación continua con cambio de escala */
+.spin-scale {
+    animation: spin-and-scale 4s linear infinite;
+}
+
+@keyframes spin-and-scale {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    25% {
+        transform: rotate(90deg) scale(1.1);
+    }
+    50% {
+        transform: rotate(180deg) scale(1);
+    }
+    75% {
+        transform: rotate(270deg) scale(0.9);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+/* ANIMACIÓN 8: Efecto de brillo deslizante */
+.shine-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.shine-effect::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.3), 
+        transparent);
+    animation: shine 3s ease-in-out infinite;
+}
+
+@keyframes shine {
+    0% {
+        left: -100%;
+    }
+    50%, 100% {
+        left: 100%;
+    }
+}
