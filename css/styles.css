@@ -23,6 +23,11 @@ body {
     line-height: 1.6;
 }
 
+/* Habilitar smooth scroll nativo en navegadores modernos */
+html {
+    scroll-behavior: smooth;
+}
+
 /* ========== HEADER Y NAVEGACIÓN ========== */
 header {
     position: fixed;
