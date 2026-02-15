@@ -206,48 +206,77 @@
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
-        // Slider JS: autoplay, loop and pause on hover. Works with any number of .slide elements.
+        // Slider JS: autoplay, loop (seamless using a cloned first slide), pause on hover.
         (function(){
             document.addEventListener('DOMContentLoaded', function(){
                 const slidesEl = document.querySelector('.slides');
-                const slides = document.querySelectorAll('.slide');
+                let slides = document.querySelectorAll('.slide');
                 if(!slidesEl || slides.length === 0) return;
 
-                let index = 0;
-                const total = slides.length;
+                const slideCount = slides.length;
+                // Clone first slide to create seamless forward loop
+                const firstClone = slides[0].cloneNode(true);
+                slidesEl.appendChild(firstClone);
+                // refresh NodeList after cloning
+                slides = document.querySelectorAll('.slide');
+
+                let index = 0; // current index (0 .. slideCount). slideCount is the clone
                 let timer = null;
-                const delay = 4000; // ms per slide
+                const delay = 7000; // ms per slide (slower by default)
+                const transitionCSS = 'transform 0.9s ease';
+
+                function setTransition(enabled){
+                    slidesEl.style.transition = enabled ? transitionCSS : 'none';
+                }
 
                 function goTo(i){
-                    // clamp
-                    index = ((i % total) + total) % total;
+                    index = i;
+                    setTransition(true);
                     slidesEl.style.transform = `translateX(${-index * 100}%)`;
                 }
 
                 function start(){
                     if(timer) return;
-                    timer = setInterval(() => { goTo(index + 1); }, delay);
+                    timer = setInterval(() => {
+                        // move forward; when index reaches slideCount (the clone), transitionend handler will snap to 0
+                        goTo(index + 1);
+                    }, delay);
                 }
 
                 function stop(){
                     if(timer){ clearInterval(timer); timer = null; }
                 }
 
-                // Pause on hover/focus for accessibility
+                // When we reach the cloned slide (index === slideCount), jump to real first slide without animation
+                slidesEl.addEventListener('transitionend', function(){
+                    if(index === slideCount){
+                        // disable transition, snap to 0, force reflow, then allow transitions again for next moves
+                        setTransition(false);
+                        index = 0;
+                        slidesEl.style.transform = `translateX(0)`;
+                        // force reflow
+                        // eslint-disable-next-line no-unused-expressions
+                        slidesEl.offsetHeight;
+                        setTimeout(() => setTransition(true), 20);
+                    }
+                });
+
+                // Pause on hover/focus and also pause when tab not visible
                 const container = document.querySelector('.slider-container');
                 container && container.addEventListener('mouseenter', stop);
                 container && container.addEventListener('mouseleave', start);
                 container && container.addEventListener('focusin', stop);
                 container && container.addEventListener('focusout', start);
 
-                // Initialize
-                goTo(0);
-                // Small timeout to allow CSS to apply, then start autoplay
-                setTimeout(start, 200);
-                // Optional: handle visibility change to pause when user switches tab
                 document.addEventListener('visibilitychange', function(){
                     if(document.hidden) stop(); else start();
                 });
+
+                // Initialize
+                setTransition(false);
+                slidesEl.style.transform = 'translateX(0)';
+                // small delay to ensure layout applied before enabling autoplay
+                setTimeout(() => { start(); setTransition(true); }, 250);
             });
         })();
     </script>
