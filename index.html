@@ -81,7 +81,7 @@
                     <div class="slide">
                         <div class="slide-content">
                             <h2>🤖 Robótica</h2>
-                            <p>Arduino, Autómatas, Sensores y Actuadores</p>
+                            <p>Arduino, RaspberryPi Autómatas, Sensores y Actuadores</p>
                         </div>
                     </div>
                     <div class="slide">
@@ -116,7 +116,7 @@
                 </div>
                 <div class="project-info">
                     <div class="project-tags">
-                        <span class="tag">Arduino</span>
+                        <span class="tag">Arduino y RaspberryPi</span>
                         <span class="tag">Robótica</span>
                         <span class="tag">Sensores</span>
                     </div>
@@ -172,11 +172,11 @@
         <div class="about-content">
             <div class="about-text">
                 <h2>Sobre mí</h2>
-                <p>Soy Daniela Rangel Herraiz, estudiante de último año del Ciclo Formativo de Grado Medio en Sistemas Microinformáticos y Redes en DigiTech, Madrid. Mi pasión por la tecnología me ha llevado a especializarme en desarrollo web, administración de sistemas y redes, y robótica educativa.</p>
+                <p>Soy Daniela Rangel Herraiz, estudiante de último año del Ciclo Formativo de Grado Medio en Sistemas Microinformáticos y Redes en DigiTech, Madrid. Mi pasión por la tecnología me ha llevado a especializarme en la programación, el desarrollo web, redes y robótica educativa.</p>
                 
-                <p>Durante mi formación, he completado mi 4º de ESO en Canadá (Institut collégial Vincent Massey Collegiate, Winnipeg), donde también realicé un curso de JavaScript. Esta experiencia internacional me ha permitido dominar el inglés a nivel C1/CAE y francés B2.</p>
+                <p>Durante mi formación, cursé un año de instituro en Canadá (Institut collégial Vincent Massey Collegiate, Winnipeg), donde empezó mi pasión por el código. Esta experiencia internacional me ha permitido dominar el inglés a nivel C1/CAE y francés B2.</p>
                 
-                <p>He participado activamente en competiciones tecnológicas, logrando el 2º puesto nacional en ASTI Robotics Challenge IX 2025 y desarrollando una aplicación móvil en Technovation Girls 2024. Además, colaboro como voluntaria en Cruz Roja en programas de alfabetización digital.</p>
+                <p>He participado activamente en competiciones tecnológicas, logrando el 2º puesto nacional en ASTI Robotics Challenge IX 2025 y volviendo como coach coach para un equipo en 2026, y desarrollando una aplicación móvil en Technovation Girls 2024. Además, colaboro como voluntaria en programas de alfabetización digital.</p>
                 
                 <div style="margin-top: 30px;">
                     <a href="sobre-mi.html" class="btn btn-secondary">Conocer Más</a>
@@ -206,7 +206,7 @@
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
-        // Slider JS: autoplay, loop (seamless using a cloned first slide), pause on hover.
+        // Slider JS:
         (function(){
             document.addEventListener('DOMContentLoaded', function(){
                 const slidesEl = document.querySelector('.slides');
@@ -214,15 +214,13 @@
                 if(!slidesEl || slides.length === 0) return;
 
                 const slideCount = slides.length;
-                // Clone first slide to create seamless forward loop
                 const firstClone = slides[0].cloneNode(true);
                 slidesEl.appendChild(firstClone);
-                // refresh NodeList after cloning
                 slides = document.querySelectorAll('.slide');
 
-                let index = 0; // current index (0 .. slideCount). slideCount is the clone
+                let index = 0;
                 let timer = null;
-                const delay = 7000; // ms per slide (slower by default)
+                const delay = 7000;
                 const transitionCSS = 'transform 0.9s ease';
 
                 function setTransition(enabled){
@@ -238,7 +236,6 @@
                 function start(){
                     if(timer) return;
                     timer = setInterval(() => {
-                        // move forward; when index reaches slideCount (the clone), transitionend handler will snap to 0
                         goTo(index + 1);
                     }, delay);
                 }
@@ -247,21 +244,16 @@
                     if(timer){ clearInterval(timer); timer = null; }
                 }
 
-                // When we reach the cloned slide (index === slideCount), jump to real first slide without animation
                 slidesEl.addEventListener('transitionend', function(){
                     if(index === slideCount){
-                        // disable transition, snap to 0, force reflow, then allow transitions again for next moves
                         setTransition(false);
                         index = 0;
                         slidesEl.style.transform = `translateX(0)`;
-                        // force reflow
-                        // eslint-disable-next-line no-unused-expressions
                         slidesEl.offsetHeight;
                         setTimeout(() => setTransition(true), 20);
                     }
                 });
 
-                // Pause on hover/focus and also pause when tab not visible
                 const container = document.querySelector('.slider-container');
                 container && container.addEventListener('mouseenter', stop);
                 container && container.addEventListener('mouseleave', start);
@@ -272,32 +264,25 @@
                     if(document.hidden) stop(); else start();
                 });
 
-                // Initialize
                 setTransition(false);
                 slidesEl.style.transform = 'translateX(0)';
-                // small delay to ensure layout applied before enabling autoplay
                 setTimeout(() => { start(); setTransition(true); }, 250);
             });
         })();
     </script>
     <script>
-        // Smooth scroll para enlaces internos - implementación segura y cierre correcto
-        // Preferimos la propiedad CSS `scroll-behavior: smooth` cuando está disponible.
-        // Este script actúa como fallback y evita saltos bruscos si el navegador no la soporta
+
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
-                // Ignorar anchors vacíos como '#'
                 if (!href || href === '#') return;
                 const target = document.querySelector(href);
                 if (!target) return;
                 e.preventDefault();
                 try {
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    // Actualizar hash en la URL sin provocar salto adicional
                     history.pushState(null, '', href);
                 } catch (err) {
-                    // Si falla, fallback al comportamiento por defecto
                     window.location.hash = href;
                 }
             });
