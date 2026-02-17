@@ -27,24 +27,18 @@
     }
 }
 
-/* ANIMACIÓN 2: Efecto de flotación y rotación 3D */
+/* ANIMACIÓN 2: Efecto de flotación suave */
 .floating-card {
-    animation: float 3s ease-in-out infinite;
+    animation: float 4s ease-in-out infinite;
     transform-style: preserve-3d;
 }
 
 @keyframes float {
-    0% {
-        transform: translateY(0px) rotateY(0deg);
+    0%, 100% {
+        transform: translateY(0px);
     }
-    33% {
-        transform: translateY(-20px) rotateY(120deg);
-    }
-    66% {
-        transform: translateY(-10px) rotateY(240deg);
-    }
-    100% {
-        transform: translateY(0px) rotateY(360deg);
+    50% {
+        transform: translateY(-25px);
     }
 }
 
